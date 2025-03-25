@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "classnames";
-import { LogoIcon, IconFacebook, IconInsta, IconX, IconYouTube, ArrowBtn } from "../../img/Icons/Icons";
-import styles from "../../styles/header.module.css"
+import { LogoIcon, IconFacebook, IconInsta, IconX, IconYouTube, ArrowBtn, PhoneIcon } from "../../public/Icons";
+import styles from "../styles/header.module.css"
 
 
 const Header: React.FC = () => {
@@ -10,37 +10,30 @@ const Header: React.FC = () => {
             <nav className={styles.header__nav}>
 
                 <div className={styles.header__logo}>
-                    <LogoIcon />
+                    <a href="#" className={styles.header__logoIcon} aria-label="Logo">
+                        <LogoIcon />
+                    </a>
                 </div>
 
                 <div className={styles.header__info}>
                     <ul className={styles.header__infoList}>
                         <li className={styles.header__infoItem}>
-                            {/* remove tag span */}
-                            <a href="#" className={styles.header__infoLink}>About us</a>
-
+                            <a href="#" aria-label="Go to page About us" className={styles.header__infoLink}>About us</a>
                         </li>
                         <li className={styles.header__infoItem}>
-                            <span>
-                                <a href="#" className={styles.header__infoLink}>Services</a>
-                            </span>
+                            <a href="#" aria-label="Go to page Services" className={styles.header__infoLink}>Services</a>
                         </li>
                         <li className={styles.header__infoItem}>
-                            <span>
-                                <a href="#" className={styles.header__infoLink}>FAQ</a>
-                            </span>
+                            <a href="#" aria-label="Go to page FAQ" className={styles.header__infoLink}>FAQ</a>
                         </li>
                         <li className={styles.header__infoItem}>
-                            <span>
-                                <a href="#" className={styles.header__infoLink}>Happy Clients</a>
-                            </span>
+                            <a href="#" aria-label="Go to page Happy Clients" className={styles.header__infoLink}>Happy Clients</a>
                         </li>
                         <li className={styles.header__infoItem}>
-                            <span>
-                                <a href="#" className={styles.header__infoLink}>Contacts</a>
-                            </span>
+                            <a href="#" aria-label="Go to page Contacts" className={styles.header__infoLink}>Contacts</a>
                         </li>
                     </ul>
+
                 </div>
 
                 <div className={styles.header__social}>
@@ -65,7 +58,7 @@ const Header: React.FC = () => {
                     <p className={styles.header__subtitle}>We offer professional pet care services in New York</p>
                     <div className={styles.header__buttons}>
                         <a href="#" className={clsx(styles.header__button, styles["header__button--primary"])}>Order services <ArrowBtn /></a>
-                        <a href="#" className={clsx(styles.header__button, styles["header__button--secondary"])}>Call Us</a>
+                        <a href="#" className={clsx(styles.header__button, styles["header__button--secondary"])}><PhoneIcon />Call Us</a>
                     </div>
                 </div>
             </nav>
