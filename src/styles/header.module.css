@@ -1,6 +1,6 @@
 .header {
-    /* background-color: rgb(170, 57, 170); */
-    background-image: url(../../public/background-header.png);
+    background-color: rgb(222, 207, 79);
+    /* background-image: url(../../public/background-header.png); */
     background-size: cover;
     background-position: center;
 }
@@ -36,12 +36,16 @@
 }
 
 /* Social */
+
 .header__socialList {
     display: flex;
     list-style: none;
     gap: 15px;
 }
 
+.header__socialLink {
+    border-radius: 50%;
+}
 
 /* Content */
 .header__content {
@@ -92,4 +96,3 @@
 .header__button--secondary:hover {
     background-color: #d46900;
 }
-
