@@ -27,6 +27,6 @@
   },
   "include": [
     "src",
-    "public/Icons.tsx"
+    "src/components/Icons.tsx"
   ]
 }
