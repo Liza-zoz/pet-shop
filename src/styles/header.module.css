@@ -1,10 +1,22 @@
 .header {
-    background-color: var(--color-background);
-    height: 100vh;
+    background-image: url('/public/background-header.png');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh; 
+    max-width: 100%; 
+    max-height: 100%; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
 }
 
 /* navigation */
-
+.header__nav {
+    flex-grow: 1; /* Якщо контенту більше, ніж місця, він зменшується */
+    overflow: auto; /* Додаємо прокручування, якщо контент не поміщається */
+    min-width: 400px;
+    }
 
 .header__top {
     display: flex;
@@ -50,25 +62,29 @@
 
 /* псевдоелемент лінія */
 .header__infoLink::after {
-    content: ""; /* Без тексту */
+    content: "";
+    /* Без тексту */
     position: absolute;
-    bottom: 0; /* Лінія з'являється внизу */
+    bottom: 0;
+    /* Лінія з'являється внизу */
     left: 0;
-    width: 0%; /* Спочатку лінія має нульову ширину */
-    height: 2px; /* Висота лінії */
-    background-color: var(--color-infoLink-hover); /* Колір лінії */
-    transition: width 0.3s ease, background-color 0.3s ease; /* Плавний перехід */
+    width: 0%;
+    /* Спочатку лінія має нульову ширину */
+    height: 2px;
+    background-color: var(--color-infoLink-after);
+    transition: width 0.3s ease, background-color 0.3s ease;
+   
 }
 
 /* При наведенні на посилання */
 .header__infoLink:hover {
-    color: var(--color-infoLink-hover); /* Зміна кольору тексту */
+    color: var(--color-infoLink-hover); 
 }
 
 /* При наведенні на посилання - показуємо лінію */
 .header__infoLink:hover::after {
-    width: 30px; /* Лінія заповнює половину ширини */
-}
+    width: 30px; 
+} 
 
 /* Social */
 .header__social {
@@ -117,7 +133,7 @@
     width: 18px;
     height: 18px;
     display: block;
-    color: azure;
+    color: var(--color-icon);
 }
 
 
@@ -125,17 +141,16 @@
 /* Content */
 .header__content {
     display: block;
-    color: #040f73;
+    color: var(--color-text-content);
     padding: 210px 15px 175px 15px;
     margin: 0 30px 0 30px;
 }
 
 /* block text */
 .header__title {
-    /* display: flex; */
-    /* flex-basis: 50%; */
-    /* line-height: 25.5px; */
-    /* flex-direction: column; */
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 /* main title */
@@ -152,37 +167,70 @@
     font-size: 19px;
     font-weight: 500;
     color: var(--color-text-subtitle);
+    margin-top: 40px;
 }
 
 /* Buttons */
 .header__buttons {
     display: flex;
+    justify-content: flex-start;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 55px;
+    padding: 0 15px 0 15px;
 }
 
 .header__button {
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     text-decoration: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     font-weight: bold;
     transition: 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-size: 15.4px;
+    text-align: center;
+    text-decoration: solid;
+    position: relative;
 }
 
 .header__button--primary {
-    background-color: #6a0dad;
-    color: white;
-}
-
-.header__button--primary:hover {
-    background-color: #530c9e;
+    background-color: var(--color-background-button--primary);
+    color: var(--color-button--primary);
+    padding: 16px 28px 16px 28px;
+    margin: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
 }
 
 .header__button--secondary {
-    background-color: #ff7b00;
-    color: white;
+    display: flex;
+    color: var(--color-text-button-secondary);
+    margin: 10px;
+    max-width: 270px;
+    align-items: center;
+}
+
+.header__button--primary:hover {
+    background-color: #58e263;
 }
 
 .header__button--secondary:hover {
-    background-color: #d46900;
+    text-decoration: underline;
 }
+
+.header__arrowBtn {
+    width: 30px;
+    height: 24px;
+    color: var(--color-arrowBtn);
+    font-size: 15px;
+}
+
+.header__phoneIcon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-phone-icon);
+    margin-right: 8px;
+}
+

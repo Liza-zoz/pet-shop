@@ -59,8 +59,8 @@ const Header: React.FC = () => {
                         <p className={styles.header__subtitle}>We offer professional pet care services in New York</p>
                     </div>
                     <div className={styles.header__buttons}>
-                        <a href="#" className={clsx(styles.header__button, styles["header__button--primary"])}>Order services <ArrowBtn /></a>
-                        <a href="#" className={clsx(styles.header__button, styles["header__button--secondary"])}><PhoneIcon />Call Us</a>
+                        <a href="#" className={clsx(styles.header__button, styles["header__button--primary"])}>Order services <ArrowBtn className={styles.header__arrowBtn} /></a>
+                        <a href="#" className={clsx(styles.header__button, styles["header__button--secondary"])}><PhoneIcon className={styles.header__phoneIcon} />Call Us</a>
                     </div>
                 </div>
             </nav>
