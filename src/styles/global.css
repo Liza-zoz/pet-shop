@@ -14,20 +14,21 @@
 
     /* color:#ffffff */
     --color-button--primary: #ffffff;
-    --color-icon: #ffffff;
+    --color-social-icon: #ffffff;
     --color-arrowBtn: #ffffff;
 
     /* color: #fff6ed */
     --color-body: #fff6ed;
     --color-background: #fff6ed;
+    --color-top-active-before: #fff6ed;
 
     /* color:#040f73 */
     --color-text-content: #040f73;
-    --color-text-button-secondary: #040f73;
-    --color--background-span: #040f73;
+    --color--background-spanBurger: #040f73;
 
     /* color:#2d3579; */
     --color-phone-icon: #2d3579;
+    --color-text-button-secondary: #2d3579;
 
     /* color:#6a6e8f */
     --color-info-link-text: #6a6e8f;
@@ -36,7 +37,7 @@
     --color-text-subtitle: #424875;
 
     /* color: #ff5b2e */
-    --color-social-item-backgraund: #ff5b2e;
+    --color-backgraund-social-item: #ff5b2e;
     --color-button-background: #ff5b2e;
     --color-infoLink-hover: #ff5b2e;
     --color-infoLink-after: #ff5b2e;
@@ -44,6 +45,9 @@
 
     /* color:#ef491c */
     --color-socialItem-hover: #ef491c;
+
+    /* color:#ded338 */
+    --color-background-button-primary-hover: #ded338;
 }
 
 body {
