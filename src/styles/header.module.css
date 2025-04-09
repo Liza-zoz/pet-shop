@@ -1,41 +1,108 @@
 .header {
-    background-image: url('/public/background-header.png');
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh; 
-    max-width: 100%; 
-    max-height: 100%; 
-    overflow: hidden; 
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-/* navigation */
-.header__nav {
-    flex-grow: 1; /* Якщо контенту більше, ніж місця, він зменшується */
-    overflow: auto; /* Додаємо прокручування, якщо контент не поміщається */
-    min-width: 400px;
-    }
+.header__bgrndImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 
+/* Для екранів до 992px */
+@media (max-width: 992px) {
+    .header__bgrndImg {
+        object-fit: none;
+        object-position: left top;
+    }
+}
+
+
+/* block with logo, list, icon */
 .header__top {
     display: flex;
     justify-content: space-between;
-    padding: 20px 15px 20px 15px;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001;
 }
 
-/* Logo */
-.header__logo {
-    margin: 5px 10px 0 10px;
+@media (max-width: 992px) {
+    .header__top {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 }
 
-/* Info */
+@media (max-width: 768px) {
+    .header__top {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+
+.header__menu {
+    display: flex;
+}
+
+
+/* === LOGO === */
+.header__logoIcon {
+    display: flex;
+    align-items: center;
+    width: 168px;
+}
+
+/* === BURGER === */
+.burger {
+    display: none;
+    flex-direction: column;
+    padding: 12px 8px;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* z-index: 10001; */
+}
+
+.burger span {
+    height: 2px;
+    background-color: var(--color--background-span);
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* === INFO === */
 .header__info {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5px 10px 0 10px;
-
 }
 
 /* ul */
@@ -47,47 +114,48 @@
 
 /* li */
 .header__infoItem {
-    margin: 10px 17.5px 10px 17.5px;
+    display: inline-block;
+    margin: 10px 17.5px;
 }
 
 /* a */
 .header__infoLink {
+    display: inline;
     text-decoration: none;
     font-size: 15px;
     color: var(--color-info-link-text);
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     position: relative;
+    white-space: nowrap;
 }
 
 /* псевдоелемент лінія */
 .header__infoLink::after {
     content: "";
-    /* Без тексту */
     position: absolute;
     bottom: 0;
-    /* Лінія з'являється внизу */
     left: 0;
     width: 0%;
-    /* Спочатку лінія має нульову ширину */
     height: 2px;
     background-color: var(--color-infoLink-after);
-    transition: width 0.3s ease, background-color 0.3s ease;
-   
+    transition: width 0.3s ease;
+
 }
 
 /* При наведенні на посилання */
 .header__infoLink:hover {
-    color: var(--color-infoLink-hover); 
+    color: var(--color-infoLink-hover);
 }
 
 /* При наведенні на посилання - показуємо лінію */
 .header__infoLink:hover::after {
-    width: 30px; 
-} 
+    width: 30px;
+}
 
-/* Social */
+/* === SOCIAL === */
 .header__social {
+    display: flex;
     margin: 5px 15px 0 15px;
 }
 
@@ -95,7 +163,8 @@
 .header__socialList {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: nowrap;
     list-style: none;
     column-gap: 5px;
 }
@@ -106,8 +175,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
 }
 
@@ -126,6 +195,8 @@
     width: 100%;
     height: 100%;
     text-decoration: none;
+    background-color: var(--color-social-item-backgraund);
+    border-radius: 50%;
 }
 
 /* icon */
@@ -136,14 +207,145 @@
     color: var(--color-icon);
 }
 
+@media (max-width: 992px) {
+
+    .header__info,
+    .header__social {
+        display: none;
+    }
+
+    .header__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logoIcon {
+        order: 1;
+    }
+
+    .burger {
+        order: 2;
+        display: flex;
+    }
+
+    .header__top.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10002;
+    }
+
+    /* add background */
+    .header__top.active::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff6ed;
+        z-index: -1;
+    }
+
+    .header__menu.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: calc(60px + 20px);
+        left: 0;
+        right: 0;
+        padding-bottom: 30px;
+        z-index: 10001;
+        padding-left: 32px;
+        padding-right: 32px;
+        margin: -10px -5px;
+    }
+
+    /* div info */
+    .header__info.active {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    /* ul info */
+    .header__info.active .header__infoList {
+        display: block;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* li info */
+    .header__infoItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: inline-block;
+        width: 100%;
+        margin: 10px 5px;
+    }
+
+    /* a info */
+    .header__infoLink {
+        font-size: 17px;
+    }
+
+    /* div social */
+    .header__social.active {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* ul social */
+    .header__social.active .header__socialList {
+        display: flex;
+        column-gap: 5px;
+        justify-content: center;
+    }
+
+    /* li social */
+    .header__socialItem {
+        display: inline-block;
+    }
+
+    .header__content,
+    .footer,
+    .main {
+        display: none;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
 
 
 /* Content */
 .header__content {
     display: block;
     color: var(--color-text-content);
-    padding: 210px 15px 175px 15px;
-    margin: 0 30px 0 30px;
+    padding: 110px 24px 100px 24px;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .header__content {
+        padding: 160px 32px 137.5px 32px;
+    }
+}
+
+@media (min-width: 992px) {
+    .header__content {
+        padding: 210px 15px 175px 15px;
+    }
 }
 
 /* block text */
@@ -151,44 +353,39 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    word-wrap: break-word;
 }
 
 /* main title */
 .header__mainTitle {
-    word-wrap: break-word;
     font-family: "Rubik", sans-serif;
-    font-size: 62px;
-    font-weight: 700;
+    font-size: 46px;
+    /* font-weight: 700; */
 }
 
 /* sub title */
 .header__subtitle {
     font-family: "Poppins", sans-serif;
     font-size: 19px;
-    font-weight: 500;
     color: var(--color-text-subtitle);
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 /* Buttons */
 .header__buttons {
     display: flex;
     justify-content: flex-start;
-    gap: 15px;
     margin-top: 55px;
-    padding: 0 15px 0 15px;
+    margin-left: -10px;
 }
 
 .header__button {
-    /* padding: 10px 20px; */
     text-decoration: none;
-    /* border-radius: 5px; */
     font-weight: bold;
     transition: 0.3s;
     font-family: "Poppins", sans-serif;
     font-size: 15.4px;
-    text-align: center;
-    text-decoration: solid;
+    /* text-align: center; */
     position: relative;
 }
 
@@ -233,4 +430,3 @@
     color: var(--color-phone-icon);
     margin-right: 8px;
 }
-

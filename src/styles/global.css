@@ -18,12 +18,13 @@
     --color-arrowBtn: #ffffff;
 
     /* color: #fff6ed */
+    --color-body: #fff6ed;
     --color-background: #fff6ed;
 
     /* color:#040f73 */
-    --color-text: #040f73;
     --color-text-content: #040f73;
     --color-text-button-secondary: #040f73;
+    --color--background-span: #040f73;
 
     /* color:#2d3579; */
     --color-phone-icon: #2d3579;
@@ -43,4 +44,8 @@
 
     /* color:#ef491c */
     --color-socialItem-hover: #ef491c;
+}
+
+body {
+    background-color: var(--color-body);
 }
