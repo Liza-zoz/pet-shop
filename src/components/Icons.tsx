@@ -1,8 +1,9 @@
-// import React from "react";
+
 
 type IconProps = {
     className?: string;
 };
+
 
 export const LogoIcon = () => {
     return (

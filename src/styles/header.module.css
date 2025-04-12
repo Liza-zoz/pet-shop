@@ -129,7 +129,7 @@
 }
 
 /* === SOCIAL SECTION === */
-.header__social {
+ .header__social {
     display: flex;
     margin: 5px 15px 0;
 }
@@ -142,8 +142,17 @@
     list-style: none;
     column-gap: 5px;
 }
+/*
+.header__socialList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    list-style: none;
+    column-gap: 5px;
+} */
 
-.header__socialItem {
+/* .header__socialItem {
     background-color: var(--color-backgraund-social-item);
     display: flex;
     align-items: center;
@@ -175,7 +184,7 @@
     height: 18px;
     display: block;
     color: var(--color-social-icon);
-}
+} */
 
 @media (max-width: 992px) {
 

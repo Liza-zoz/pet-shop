@@ -1,11 +1,11 @@
 import React from "react";
-import clsx from "classnames"; 
-import { ArrowBtn, PhoneIcon } from "./Icons"; 
-import styles from "../styles/ContentHeader.module.css"; 
+import clsx from "classnames";
+import { ArrowBtn, PhoneIcon } from "./Icons";
+import styles from "../styles/ContentHeader.module.css";
 
 const ContentHeader: React.FC = () => {
     return (
-        
+
         <div className={styles.header__content}>
 
             {/* === Фонова картинка === */}
@@ -14,7 +14,7 @@ const ContentHeader: React.FC = () => {
                 className={styles.header__bgrndImg}
                 alt="Header background"
             />
-            
+
             {/* === Title and subtitle === */}
             <div className={styles.header__title}>
                 <h1 className={styles.header__mainTitle}>

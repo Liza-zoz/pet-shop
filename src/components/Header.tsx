@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import clsx from "classnames";
 import { Link } from 'react-router-dom';
 
+import { SocialLinks } from "./SocialLinks";
+
 // Logo
-import { LogoIcon, IconFacebook, IconInsta, IconX, IconYouTube } from "./Icons";
+import { LogoIcon } from "../components/Icons";
 
 // Style
 import styles from "../styles/Header.module.css"
@@ -11,16 +13,25 @@ import styles from "../styles/Header.module.css"
 // === Header component ===
 const Header: React.FC = () => {
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(() => {
+        const stored = localStorage.getItem("menu-open");
+        return stored === "true";
+    });
+
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.classList.add('menu-open');
-        } else {
-            document.body.classList.remove('menu-open');
-        }
+        document.body.classList.toggle("menu-open", isMenuOpen);
+        localStorage.setItem("menu-open", isMenuOpen.toString());
     }, [isMenuOpen]);
+
+    const navLinks = [
+        { label: "About Us", path: "/about-us" },
+        { label: "Services", path: "/services" },
+        { label: "FAQ", path: "/faq" },
+        { label: "Happy Clients", path: "/happy-clients" },
+        { label: "Contacts", path: "/contacts" },
+    ];
 
     return (
         <header className={styles.header}>
@@ -55,42 +66,27 @@ const Header: React.FC = () => {
                     {/* === Info nav links === */}
                     <div className={clsx(styles.header__info, { [styles.active]: isMenuOpen })}>
                         <ul className={styles.header__infoList}>
-                            <li className={styles.header__infoItem}>
-                                <Link to="/about-us" className={styles.header__infoLink} aria-label="Go to page About us">
-                                    About us
-                                </Link>
-                            </li>
-                            <li className={styles.header__infoItem}>
-                                <a href="#" aria-label="Go to page Services" className={styles.header__infoLink}>Services</a>
-                            </li>
-                            <li className={styles.header__infoItem}>
-                                <a href="#" aria-label="Go to page FAQ" className={styles.header__infoLink}>FAQ</a>
-                            </li>
-                            <li className={styles.header__infoItem}>
-                                <a href="#" aria-label="Go to page Happy Clients" className={styles.header__infoLink}>Happy Clients</a>
-                            </li>
-                            <li className={styles.header__infoItem}>
-                                <a href="#" aria-label="Go to page Contacts" className={styles.header__infoLink}>Contacts</a>
-                            </li>
+
+                            {navLinks.map((link) => (
+                                <li key={link.path} className={styles.header__infoItem}>
+
+                                    <Link to={link.path}
+                                        className={styles.header__infoLink}
+                                        aria-label={`Go to page ${link.label}`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        {link.label}
+                                    </Link>
+
+                                </li>
+                            ))}
+
                         </ul>
                     </div>
 
                     {/* === Social media icons === */}
                     <div className={clsx(styles.header__social, { [styles.active]: isMenuOpen })}>
-                        <ul className={styles.header__socialList}>
-                            <li className={styles.header__socialItem}>
-                                <a href="https://facebook.com/" aria-label="Go to Facebook" className={styles.header__socialLink}><IconFacebook className={styles.header__icon} /></a>
-                            </li>
-                            <li className={styles.header__socialItem}>
-                                <a href="https://instagram.com/" aria-label="Go to Instagram" className={styles.header__socialLink}><IconInsta className={styles.header__icon} /></a>
-                            </li>
-                            <li className={styles.header__socialItem}>
-                                <a href="https://twitter.com/" aria-label="Go to Twitter" className={styles.header__socialLink}><IconX className={styles.header__icon} /></a>
-                            </li>
-                            <li className={styles.header__socialItem}>
-                                <a href="https://youtube.com/" aria-label="Go to YouTube" className={styles.header__socialLink}><IconYouTube className={styles.header__icon} /></a>
-                            </li>
-                        </ul>
+                        <SocialLinks />
                     </div>
                 </div>
             </nav>
