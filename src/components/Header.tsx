@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import clsx from "classnames";
-import { LogoIcon, IconFacebook, IconInsta, IconX, IconYouTube, ArrowBtn, PhoneIcon } from "./Icons";
-import styles from "../styles/header.module.css"
+import { Link } from 'react-router-dom';
+
+// Logo
+import { LogoIcon, IconFacebook, IconInsta, IconX, IconYouTube } from "./Icons";
+
+// Style
+import styles from "../styles/Header.module.css"
 
 // === Header component ===
 const Header: React.FC = () => {
@@ -21,8 +26,6 @@ const Header: React.FC = () => {
         <header className={styles.header}>
             <nav className={styles.header__nav}>
 
-                {/* === Background image === */}
-                <img src="/background-header.png" className={styles.header__bgrndImg} alt="Header background" />
 
                 {/* === Top section: logo + burger + menu === */}
                 <div className={clsx(styles.header__top, { [styles.active]: isMenuOpen })}>
@@ -32,9 +35,9 @@ const Header: React.FC = () => {
 
                         {/* === Logo === */}
                         <div className={styles.header__logo}>
-                            <a href="#" className={styles.header__logoIcon} aria-label="Logo">
+                            <Link to="/" className={styles.header__logoIcon} aria-label="Logo">
                                 <LogoIcon />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* === Burger button === */}
@@ -53,7 +56,9 @@ const Header: React.FC = () => {
                     <div className={clsx(styles.header__info, { [styles.active]: isMenuOpen })}>
                         <ul className={styles.header__infoList}>
                             <li className={styles.header__infoItem}>
-                                <a href="#" aria-label="Go to page About us" className={styles.header__infoLink}>About us</a>
+                                <Link to="/about-us" className={styles.header__infoLink} aria-label="Go to page About us">
+                                    About us
+                                </Link>
                             </li>
                             <li className={styles.header__infoItem}>
                                 <a href="#" aria-label="Go to page Services" className={styles.header__infoLink}>Services</a>
@@ -86,22 +91,6 @@ const Header: React.FC = () => {
                                 <a href="https://youtube.com/" aria-label="Go to YouTube" className={styles.header__socialLink}><IconYouTube className={styles.header__icon} /></a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-
-                {/* === Main content: title + subtitle + buttons === */}
-                <div className={styles.header__content}>
-
-                    {/* === Title and subtitle === */}
-                    <div className={styles.header__title}>
-                        <h1 className={styles.header__mainTitle}>Your Pet Deserves the Best Care</h1>
-                        <p className={styles.header__subtitle}>We offer professional pet care services in New York</p>
-                    </div>
-
-                    {/* === CTA Buttons === */}
-                    <div className={styles.header__buttons}>
-                        <a href="#" className={clsx(styles.header__button, styles["header__button--primary"])}>Order services <ArrowBtn className={styles.header__arrowBtn} /></a>
-                        <a href="#" className={clsx(styles.header__button, styles["header__button--secondary"])}><PhoneIcon className={styles.header__phoneIcon} />Call Us</a>
                     </div>
                 </div>
             </nav>
