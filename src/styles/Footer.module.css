@@ -1,0 +1,263 @@
+/* === FOOTER WRAPPER === */
+.footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+/* === MAIN CONTAINER INSIDE FOOTER === */
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* === COMPANY INFO BLOCK (LOGO + DESCRIPTION + SOCIAL LINKS) === */
+.footer__company {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+}
+
+/* === COMPANY DESCRIPTION TEXT === */
+.footer__description {
+    margin-top: 30px;
+    color: var(--color-footer-description);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* === SOCIAL MEDIA ICONS BLOCK === */
+.footer__social {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* === GENERAL STYLING FOR FOOTER COLUMNS === */
+.footer__column {
+    margin-top: 50px;
+}
+
+/* === COLUMN HEADINGS === */
+.footer__title {
+    color: var(--color-footer-title);
+    font-family: "Rubik", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+/* === DECORATIVE LINE BELOW TITLES === */
+.footer__divider {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__line {
+    width: 20%;
+    height: 33px;
+    display: block;
+}
+
+.footer__line path {
+    stroke: var(--color-footer-line-path-stroke);
+    stroke-width: 3px;
+    fill: none;
+}
+
+/* === LIST WRAPPER (USED IN LINK COLUMNS) === */
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -10px -5px;
+}
+
+/* === LIST ITEM === */
+.footer__item {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 10px 5px;
+}
+
+/* === LINK INSIDE LIST ITEM === */
+.footer__item :global(a) {
+    text-decoration: none;
+    color: var(--color-footer-item-link);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    transition: text-decoration 0.2s ease;
+    cursor: pointer;
+}
+
+.footer__item :global(a:hover) {
+    color: var(--color-footer-item-link-hover);
+    text-decoration: underline;
+}
+
+/* === SUBSCRIBE SECTION WRAPPER === */
+.footer__subscribe {
+    text-align: center;
+}
+
+/* === SUBSCRIBE LABEL TEXT === */
+.footer__label {
+    color: var(--color-footer-label-text);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* === INPUT FIELD STYLING === */
+.footer__input {
+    display: block;
+    margin-top: 32px;
+    padding: 11px 22px;
+    background-color: var(--color-background-footer-input);
+    border-radius: 20px;
+    cursor: text;
+    text-align: center;
+    width: 100%;
+    border: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer__input:focus::placeholder {
+    color: transparent;
+}
+
+.footer__input::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-footer-input-placeholder);
+}
+
+.footer__input:focus {
+    border: 2px solid var(--color-footer-input-focus-border);
+    outline: none;
+}
+
+/* === SUBSCRIBE BUTTON STYLING === */
+.footer__button {
+    margin-top: 24px;
+    padding: 11px 22px;
+    background-color: var(--color-footer-background-button);
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    border: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    line-height: 16.8px;
+}
+
+.footer__button:hover {
+    background-color: var(--color-footer-background-button-hover);
+}
+
+.footer__buttonText {
+    font-family: "Poppins", sans-serif;
+    color: var(--color-footer-buttonText);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* === RESPONSIVE STYLES FOR TABLETS (min-width: 768px) === */
+@media (min-width: 768px) {
+    .footer__container {
+        display: flex;
+        flex-direction: row;
+        text-align: start;
+        align-items: stretch;
+        padding: 0;
+    }
+
+    .footer__column {
+        flex-basis: 20%;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer__company {
+        max-width: 20%;
+        padding: 0 15px;
+    }
+
+    .footer__logoIcon {
+        display: flex;
+        width: 100%;
+    }
+
+    .footer__description {
+        margin-top: 30px;
+    }
+
+    .footer__social {
+        display: flex;
+    }
+
+    .footer__divider {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .footer__column {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .footer__title {
+        font-size: 20px;
+    }
+
+    .footer__item {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .footer__item :global(a) {
+        font-size: 15px;
+    }
+
+    .footer__subscribe {
+        text-align: start;
+    }
+
+    .footer__input {
+        margin-top: 20px;
+        text-align: start;
+    }
+}
+
+/* === RESPONSIVE STYLES FOR DESKTOP (min-width: 992px) === */
+@media (min-width: 992px) {
+    .footer__title {
+        font-size: 25px;
+    }
+
+    .footer__input {
+        margin-top: 32px;
+        text-align: start;
+    }
+
+    .footer__item :global(a) {
+        font-size: 17px;
+    }
+}

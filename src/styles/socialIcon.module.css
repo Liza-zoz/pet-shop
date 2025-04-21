@@ -1,11 +1,10 @@
-
 .socialItem {
     background-color: var(--color-backgraund-social-item);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     transition: transform 0.2s ease-in-out;
 }

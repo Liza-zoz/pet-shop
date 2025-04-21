@@ -3,7 +3,9 @@
 
 
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,10 +14,15 @@
 :root {
     scroll-behavior: smooth;
 
+    /* color: #00000066 */
+    --color-footer-input-placeholder: #00000066;
+
     /* color:#ffffff */
     --color-button--primary: #ffffff;
     --color-social-icon: #ffffff;
     --color-arrowBtn: #ffffff;
+    --color-background-footer-input: #ffffff;
+    --color-footer-buttonText: #ffffff;
 
     /* color: #fff6ed */
     --color-body: #fff6ed;
@@ -25,6 +32,7 @@
     /* color:#040f73 */
     --color-text-content: #040f73;
     --color--background-spanBurger: #040f73;
+    --color-footer-title: #040f73;
 
     /* color:#2d3579; */
     --color-phone-icon: #2d3579;
@@ -32,9 +40,13 @@
 
     /* color:#6a6e8f */
     --color-info-link-text: #6a6e8f;
+    --color-footer-description: #6a6e8f;
+    --color-footer-item-link: #6a6e8f;
+    --color-footer-label-text: #6a6e8f;
 
     /* color:#424875 */
     --color-text-subtitle: #424875;
+    --color-footer-item-link-hover: #424875;
 
     /* color: #ff5b2e */
     --color-backgraund-social-item: #ff5b2e;
@@ -42,12 +54,19 @@
     --color-infoLink-hover: #ff5b2e;
     --color-infoLink-after: #ff5b2e;
     --color-background-button--primary: #ff5b2e;
+    --color-footer-line-path-stroke: #ff5b2e;
+    --color-footer-background-button: #ff5b2e;
+
 
     /* color:#ef491c */
     --color-socialItem-hover: #ef491c;
 
     /* color:#ded338 */
     --color-background-button-primary-hover: #ded338;
+    --color-footer-background-button-hover: #ded338;
+
+    /* color: #00aaff */
+    --color-footer-input-focus-border: #00aaff;
 }
 
 body {

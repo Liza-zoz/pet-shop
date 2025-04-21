@@ -1,5 +1,3 @@
-
-
 type IconProps = {
     className?: string;
 };
@@ -86,4 +84,16 @@ export const PhoneIcon = ({ className = "" }: IconProps) => {
     )
 }
 
+export const LineDivider = ({ className = "" }: IconProps) => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 3000 33"
+            preserveAspectRatio="none"
+            className={className}
+        >
+            <path d="M0 16.5 L3000 16.5" />
+        </svg>
+    )
+}
 
